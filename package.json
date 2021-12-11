@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "discord.js": "^13.3.1",
+    "fastify": "^3.24.1",
+    "fastify-swagger": "^4.12.6",
+    "mongoose": "^6.1.1"
+  }
+}
