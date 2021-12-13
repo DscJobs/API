@@ -4,6 +4,6 @@ module.exports = {
     port: 8080,
     domain: "http://localhost:8080",
     status: 'Online',
-    guild: '',
-    logChan: ''
+    guild: '904396620517503047',
+    logChan: '904401386865852426'
 }
