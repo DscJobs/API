@@ -3,5 +3,7 @@ module.exports = {
     mongoose: "mongodb+srv://admin:kuPGzAXgTSlT5Sf3@dscjobs.itscj.mongodb.net/test",
     port: 8080,
     domain: "http://localhost:8080",
-    status: 'Online'
+    status: 'Online',
+    guild: '',
+    logChan: ''
 }

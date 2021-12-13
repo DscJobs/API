@@ -2,7 +2,7 @@ const { Client } = require("discord.js");
 const client = new Client({ disableEveryone: true, disabledEvents: ["TYPING_START"], intents: 32767 });
 const mongoose = require("mongoose");
 const config = require("./config.js")
-let api = require("./fastify/index");
+let api = require("./server/index");
 
 client.on("ready", () => {
     api(client);
