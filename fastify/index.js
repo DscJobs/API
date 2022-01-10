@@ -2,6 +2,7 @@ module.exports = (client) => {
     const { port } = require("../configs/config");
     const fastify = require('fastify')({ logger: false });
     const swagger = require('../configs/swagger');
+    
     fastify.register(require('fastify-swagger'), swagger.options);
 
     const routes = [
@@ -22,7 +23,7 @@ module.exports = (client) => {
 
         try {
 
-            await fastify.listen(config.port, '0.0.0.0');
+            await fastify.listen(process.env.PORT, '0.0.0.0');
             await console.log(`[DSCJobs-Logs] Listening to the Server on PORT: ${port}`);
             await console.log(`[DSCJobs-Logs] Connected to the Discord API as ${client.user.username}`);
 
