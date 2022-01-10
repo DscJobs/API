@@ -1,19 +1,13 @@
 module.exports = (client) => {
-    const { port } = require("../config");
+    const { port } = require("../configs/config");
     const fastify = require('fastify')({ logger: false });
-    fastify.register(require('fastify-swagger'), {
-        exposeRoute: true,
-        routePrefix: '/docs',
-        swagger: {
-            info: { title: 'fastify-api' },
-        },
-    });
+    const swagger = require('../configs/swagger');
+    fastify.register(require('fastify-swagger'), swagger.options);
 
     const routes = [
-        //Get Requests
-        //"./routes/getUserReviews",
+        // Get Routes
+        "./routes/homePage",
         "./routes/getAllReviews",
-        //"./routes/landingPage"
     ]
     routes.map(route => {
         fastify.register(require(route));
@@ -28,10 +22,9 @@ module.exports = (client) => {
 
         try {
 
-            await fastify.listen(process.env.PORT, '0.0.0.0');
-
-            console.log(`[DSCJobs-Logs] Listening to the Server on PORT: ${port}`);
-            console.log(`[DSCJobs-Logs] Connected to the Discord API as ${client.user.username}`);
+            await fastify.listen(config.port, '0.0.0.0');
+            await console.log(`[DSCJobs-Logs] Listening to the Server on PORT: ${port}`);
+            await console.log(`[DSCJobs-Logs] Connected to the Discord API as ${client.user.username}`);
 
         } catch (error) {
 
