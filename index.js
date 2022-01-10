@@ -12,7 +12,6 @@ client.on('ready', async () => {
 
     await mongoose.connect(config.mongoose, {
         useNewUrlParser: true,
-        useFindAndModify: false,
         useUnifiedTopology: true
     }, (err) => {
         if (err) return console.error(err.stack);
