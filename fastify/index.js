@@ -25,7 +25,7 @@ module.exports = async (client) => {
 
         try {
 
-            await fastify.listen(port, '0.0.0.0');
+            await fastify.listen(process.env.PORT, '0.0.0.0');
 
             console.log(`Listening to the Server on Port: ${port}, ${client.user.username} is Loaded.`);
 
