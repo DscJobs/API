@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "Official Fastify Server for the DscJobs API",
   "main": "index.js",
-  "engineStrict" : true,
-
-  "engines" : { 
-      "node" : "16.x" 
-  },
   "dependencies": {
     "discord.js": "^13.3.1",
     "fastify": "^3.22.1",
@@ -16,6 +11,7 @@
   },
   "devDependencies": {},
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
   },
   "author": "DscJobs",

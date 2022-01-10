@@ -1,14 +1,16 @@
-module.exports = (client) => {
+const mongoose = require("mongoose");
+const config = require("../configs/config");
+
+module.exports = async (client) => {
     const { port } = require("../configs/config");
-    const fastify = require('fastify')({ logger: false });
-    const swagger = require('../configs/swagger');
-    
+    const swagger = require("../configs/swagger");
+    const fastify = require('fastify')({ logger: true });
+
     fastify.register(require('fastify-swagger'), swagger.options);
 
     const routes = [
-        // Get Routes
         "./routes/homePage",
-        "./routes/getAllReviews",
+        "./routes/getAllReviews"
     ]
     routes.map(route => {
         fastify.register(require(route));
@@ -23,13 +25,13 @@ module.exports = (client) => {
 
         try {
 
-            await fastify.listen(process.env.PORT, '0.0.0.0');
-            await console.log(`[DSCJobs-Logs] Listening to the Server on PORT: ${port}`);
-            await console.log(`[DSCJobs-Logs] Connected to the Discord API as ${client.user.username}`);
+            await fastify.listen(port, '0.0.0.0');
+
+            console.log(`Listening to the Server on Port: ${port}, ${client.user.username} is Loaded.`);
 
         } catch (error) {
 
-            fastify.log.error(`[DSCJobs-Logs] Error: ${error} Stack: ${error.stack}`);
+            fastify.log.error(error);
 
             process.exit(1);
         }

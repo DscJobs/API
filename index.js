@@ -15,7 +15,6 @@ client.on('ready', async () => {
         useUnifiedTopology: true
     }, (err) => {
         if (err) return console.error(err.stack);
-        console.log('Failed to connect to the Database');
     });
 
     console.log('Connected to the Database Successfully');

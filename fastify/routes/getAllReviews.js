@@ -8,27 +8,39 @@ const getAllReviews = async (fastify, options, done) => {
             tags: ['get'],
             response: {
                 200: {
-                    _id: 'The ID for this Table in our Database',
-                    userID: 'The Discord User ID/Snowflake to Fetch',
-                    content: 'The Content of the Review (IE: What was said)',
-                    likes: 'Number of Likes this Review has Received',
-                    dislikes: 'Number of Dislikes this Review has Received',
-                    reports: 'Number of times this Review has been Reported to Staff for Review',
-                    replies: 'Number of Users who have Replied to this Review',
-                    rate: 'The Rating for this Review (1-5)',
-                    date: 'The Date that the Review was Posted!' 
+                    description: 'Request was Successful',
+                    type: 'object',
+                    properties: {
+                        _id: { type: 'string' },
+                        userID: { type: 'string' },
+                        content: { type: 'string' },
+                        likes: { type: 'number' },
+                        dislikes: { type: 'number'},
+                        reports: { type: 'number' },
+                        replies: { type: 'number' },
+                        rate: { type: 'number' },
+                        date: { type: 'number' }
+                    }
                 },
                 400: {
-                    message: '[DscJobs API] Hmm, We are unable to find that User. Please check the ID and try again!',
-                    error: true,
-                    fatal: false,
-                    status: 400
+                    description: '[DscJobs API] Hmm, We are unable to find that User. Please check the ID and try again!',
+                    type: 'object',
+                    properties: {
+                        message: { type: 'string' },
+                        error: { type: 'boolean' },
+                        fatal: { type: 'boolean' },
+                        status: { type: 'number' }
+                    }
                 },
                 404: {
-                    message: '[DscJobs API] Hmm, Seems like that User does not have any Reviews Available!',
-                    error: true,
-                    fatal: false,
-                    status: 404
+                    description: '[DscJobs API] Hmm, Seems like that User does not have any Reviews Available!',
+                    type: 'object',
+                    properties: {
+                        message: { type: 'string' },
+                        error: { type: 'boolean' },
+                        fatal: { type: 'boolean' },
+                        status: { type: 'number' }
+                    }
                 }
             }
         }
