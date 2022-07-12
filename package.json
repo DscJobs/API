@@ -1,0 +1,37 @@
+{
+    "name": "@jobcord/api",
+    "description": "Fatify REST API for the DscJobs/JobCord Services",
+    "version": "3.0.0",
+    "main": "handlers/client/index.js",
+    "scripts": {
+        "dev": "nodemon handlers/client/index.js",
+        "start": "node handlers/client/index.js"
+    },
+    "dependencies": {
+        "@fastify/autoload": "5.1.0",
+        "@fastify/rate-limit": "7.0.0",
+        "chalk": "^4.1.2",
+        "dotenv": "16.0.1",
+        "discord.js": "^13.6.0",
+        "fastify": "^4.2.0",
+        "ioredis": "^5.0.3",
+        "module-alias": "^2.2.2",
+        "mongoose": "^6.0.12",
+        "moment": "^2.29.2",
+        "moment-duration-format": "^2.3.2",
+        "parse-ms": "^3.0.0",
+        "redis": "^4.0.6"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.15"
+    },
+    "_moduleAliases": {
+        "@Root": ".",
+        "@Models": "./database",
+        "@Handlers": "./handlers",
+        "@Listeners": "./listeners",
+        "@Server": "./server",
+        "@Settings": "./settings",
+        "@Routes": "./server/routes"
+    }
+}
