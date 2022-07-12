@@ -52,7 +52,10 @@ module.exports = async (client) => {
   const start = async () => {
     try {
       
-      await fastify.listen({ port: Port })
+      await fastify.listen({
+        port: Port,
+        host: '0.0.0.0'
+      })
 
       Console.SendLogs(`Web Server is Ready on PORT: ${Port}`, "ready");
     } catch (err) {
