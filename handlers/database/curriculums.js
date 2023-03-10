@@ -40,4 +40,10 @@ module.exports.fetchTopViewed = async () => {
     return res;
 };
 
+module.exports.fetchUserCV = async ({ userID }) => {
+    let res = await Curriculums.findOne({ userID: userID });
+
+    return res;
+}
+
 
