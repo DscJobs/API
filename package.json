@@ -1,7 +1,7 @@
 {
     "name": "@jobcord/api",
     "description": "Fatify REST API for the DscJobs/JobCord Services",
-    "version": "3.0.0",
+    "version": "3.1.0",
     "main": "handlers/client/index.js",
     "scripts": {
         "dev": "nodemon handlers/client/index.js",

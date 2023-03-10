@@ -1,34 +1,10 @@
 const { Port, RedisURI } = require("@Settings/index");
 const Console = require("@Handlers/logger");
-const Redis = require("ioredis");
-const redisDB = require("redis");
 const path = require("path");
 
 module.exports = async (client) => {
-  const redis = new Redis(RedisURI);
-
-  Console.SendLogs("Connected to the Redis Database...", "ready");
 
   const fastify = require("fastify")({ logger: true });
-
-  fastify.register(require("@fastify/rate-limit"), {
-    max: 3000,
-    redis: redis,
-    global: false,
-    skipOnError: true,
-    timeWindow: "15 Minutes",
-    addHeadersOnExceeding: {
-      "x-ratelimit-limit": true,
-      "x-ratelimit-remaining": true,
-      "x-ratelimit-reset": true,
-    },
-    addHeaders: {
-      "x-ratelimit-limit": true,
-      "x-ratelimit-remaining": true,
-      "x-ratelimit-reset": true,
-      "retry-after": true,
-    },
-  });
 
   fastify.register(require("@fastify/autoload"), {
     dir: path.join(__dirname, "routes"),
