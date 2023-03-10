@@ -12,6 +12,8 @@ module.exports = async (client) => {
 
   fastify.addHook("preHandler", (req, res, done) => {
     req.client = client;
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers",  "*");
     done();
   });
 
