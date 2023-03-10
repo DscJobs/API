@@ -15,7 +15,27 @@ module.exports = async (fastify, opts) => {
     });
 
     else if (userCV) return reply.status(200).send({
-        userCV
+        userID: userCV.userID,
+        overview: userCV.overview,
+        hire: userCV.hire,
+        birthday: userCV.birthday,
+        link: userCV.link,
+        email: userCV.email,
+        job: userCV.job,
+        vanity: userCV.vanity,
+        private: userCV.private,
+        developer: userCV.developer,
+        current: userCV.current,
+        exp_toggle: userCV.exp_toggle,
+        nitro: userCV.nitro,
+        views: userCV.views,
+        likes: userCV.likes,
+        date: userCV.date,
+        salary: `$${userCV.details[0].salary}`,
+        exp: `${userCV.details[0].exp} years`,
+        exp_servers: userCV.details[0].exp_servers,
+        activity: userCV.details[0].active,
+        servers: userCV.servers
     })
 
     else {
