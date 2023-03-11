@@ -1,4 +1,5 @@
 const Users = require("@Models/users");
+const CVUsers = require("@Models/curriculum")
 
 module.exports.fetchDbUser = async (userID) => {
   let user = await Users.findOne({ userID: userID });
@@ -13,3 +14,15 @@ module.exports.createNewUser = async (userID) => {
 
   return await check;
 };
+
+module.exports.fetchAllDevs = async() => {
+  let devs = await CVUsers.find({ developer: true, private: false });
+
+  return await devs;
+}
+
+module.exports.fetchAllUsers = async() => {
+  let users = await CVUsers.find({ developer: false, private: false });
+
+  return await users;
+}
