@@ -10,6 +10,7 @@ module.exports = async (fastify, opts) => {
     let fetch;
     let username;
     let discrim;
+    let cached;
 
     if (!user)
       return reply.status(404).send({
@@ -26,6 +27,7 @@ module.exports = async (fastify, opts) => {
         fetch = await u.displayAvatarURL({ dynamic: true });
         username = await u.username;
         discrim = await u.discriminator;
+        cached = await u;
       });
 
 
@@ -38,7 +40,8 @@ module.exports = async (fastify, opts) => {
         rates: user.rates,
         banned: user.banned,
         staff: user.staff,
-        premium: user.premium
+        premium: user.premium,
+        cached: cached
       });
 
     } else {
