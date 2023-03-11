@@ -23,7 +23,7 @@ module.exports = async (fastify, opts) => {
     else if (user) {
 
       await request.client.users.fetch(user.userID).then(async u => {
-        fetch = await u.displayAvatarURL();
+        fetch = await u.displayAvatarURL({ dynamic: true });
         username = await u.username;
         discrim = await u.discriminator;
       });
